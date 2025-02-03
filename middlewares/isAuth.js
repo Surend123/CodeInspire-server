@@ -10,7 +10,7 @@ export const isAuth = async (req, res, next) => {
         message: "Please Login",
       });
 
-    const decodedData = jwt.verify(token, process.env.Jwt_Sec);
+    const decodedData = jwt.verify(token, `${process.env.Jwt_Sec}`);
 
     req.user = await User.findById(decodedData._id);
 
